@@ -13,10 +13,6 @@ import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.melq.seizonkakuninbutton.databinding.FragmentMainBinding
 import com.melq.seizonkakuninbutton.notification.NotificationReceiver
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 class MainFragment : Fragment(R.layout.fragment_main) {
     private val vm: MainViewModel by activityViewModels()
