@@ -39,6 +39,8 @@ class MyAdapter(private val historyList: MutableList<Timestamp>, private val con
                         "${calendar.get(Calendar.SECOND)}"
             tvPushedTime.text = pushedTimeStr
 
+            tvComment.text = comment
+
             val now = Calendar.getInstance().apply { time = Date() }
             val diffTime = now.timeInMillis - calendar.timeInMillis
             val millisOfHours = 1000 * 60 * 60
