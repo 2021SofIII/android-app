@@ -7,7 +7,7 @@ import com.google.firebase.ktx.Firebase
 
 class UserRepository {
     companion object {
-        const val collectionName = "data"
+        const val collectionName = "commentTest"
     }
     private val db = Firebase.firestore
 
