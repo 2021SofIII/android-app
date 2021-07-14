@@ -17,6 +17,14 @@
         android:textSize="24sp"/>
 
     <TextView
+        android:id="@+id/tv_comment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pushed_time"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="18sp" />
+
+    <TextView
         android:id="@+id/tv_hours_ago"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

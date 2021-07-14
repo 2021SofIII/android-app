@@ -15,6 +15,7 @@ class MyAdapter(private val historyList: MutableList<Timestamp>, private val con
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val box: View = view.findViewById(R.id.box)
         val tvPushedTime: TextView = view.findViewById(R.id.tv_pushed_time)
+        val tvComment: TextView = view.findViewById(R.id.tv_comment)
         val tvHoursAgo: TextView = view.findViewById(R.id.tv_hours_ago)
     }
 
@@ -25,6 +26,8 @@ class MyAdapter(private val historyList: MutableList<Timestamp>, private val con
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val historyData = historyList[historyList.size - 1 - position]
+        val timestamp = historyData["timestamp"] as Timestamp
+        val comment = historyData["comment"] as String
 
         holder.run {
             val calendar = Calendar.getInstance()
