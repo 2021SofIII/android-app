@@ -140,8 +140,10 @@ class MainViewModel : ViewModel() {
 
     fun getUserData() {
         repository.getUserData(firebaseUser.uid) {
-            user = it
-            isUserLoaded.value = true
+            if (it != null) {
+                user = it
+                isUserLoaded.value = true
+            }
         }
     }
 

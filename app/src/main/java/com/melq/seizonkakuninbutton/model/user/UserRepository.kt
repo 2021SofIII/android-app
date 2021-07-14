@@ -35,15 +35,15 @@ class UserRepository {
             }
     }
 
-    fun getUserData(id: String, onSuccess: (User) -> Unit): User { // 取得待機がよくわからんので、関数を渡している
+    fun getUserData(id: String, onSuccess: (User?) -> Unit): User? { // 取得待機がよくわからんので、関数を渡している
         val tag = "GET_USER_DATA"
-        var user = User()
+        var user: User? = null
         val doc = db.collection(collectionName).document(id)
         doc.get()
             .addOnSuccessListener { document ->
                 if (document != null) {
                     Log.d(tag, "DocumentSnapshot exists. data: ${document.data}")
-                    user = document.data!!.toUser()
+                    user = document.data?.toUser()
                 } else {
                     Log.d(tag, "no such document")
                 }
