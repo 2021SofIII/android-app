@@ -1,7 +1,6 @@
 package com.melq.seizonkakuninbutton.model.user
 
 import android.util.Log
-import com.google.firebase.Timestamp
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -56,32 +55,12 @@ class UserRepository {
         return user // 待ち方わからんので、 User() が返ってる
     }
 
-    fun getUserName(id: String, onSuccess: (String) -> Unit): String {
-        val tag = "GET_USER_NAME"
-        var name = ""
-        val doc = db.collection(collectionName).document(id)
-        doc.get()
-            .addOnSuccessListener { document ->
-                if (document.data != null) {
-                    Log.d(tag, "DocumentSnapshot exists data: ${document.data}")
-                    name = document.data!!.toUser().name
-                } else {
-                    Log.d(tag, "no such document")
-                }
-                onSuccess(name)
-            }
-            .addOnFailureListener { e ->
-                Log.d(tag, "get failed with", e)
-            }
-        return name // 待ち方わからんので name = "" が返ってる
-    }
-
-    fun reportLiving(id: String, timestamp: Timestamp) {
+    fun reportLiving(id: String, info: Map<String, Any>) {
         val tag = "REPORT_LIVING"
         val doc = db.collection(collectionName).document(id)
 
-        doc.update("pushHistory", FieldValue.arrayUnion(timestamp))
-        Log.d(tag, "Add history: $timestamp")
+        doc.update("pushHistory", FieldValue.arrayUnion(info))
+        Log.d(tag, "Add history: $info")
     }
 
     fun updateName(id: String, newName: String, onSuccess: () -> Unit) {
@@ -100,7 +79,7 @@ class UserRepository {
     private fun Map<String, Any>.toUser(): User {
         val email = this["email"] as String
         val name = this["name"] as String
-        val history = this["pushHistory"] as MutableList<Timestamp>
+        val history = this["pushHistory"] as MutableList<Map<String, Any>>
         return User(email, name, history)
     }
 }
