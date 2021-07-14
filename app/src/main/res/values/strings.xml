@@ -43,4 +43,5 @@
     <string name="button_pushed">ボタンを押しました！</string>
     <string name="remind_to_watcher">履歴を見るよう促す通知</string>
     <string name="lets_watch">何時にボタンが押されたか見てみましょう</string>
+    <string name="can_put_comment">コメントを付けられます！</string>
 </resources>

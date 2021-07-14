@@ -77,10 +77,11 @@ class MainFragment : Fragment(R.layout.fragment_main) {
         _binding = FragmentMainBinding.bind(view)
 
         binding.btMain.setOnClickListener {
-            vm.buttonPushed()
+            vm.buttonPushed(binding.etComment.text.toString())
             vm.done.observe(viewLifecycleOwner) {
                 if (it == true) {
                     Snackbar.make(view, R.string.button_pushed, Snackbar.LENGTH_SHORT).show()
+                    binding.etComment.setText("")
                     vm.done.value = false
                 }
             }
