@@ -11,6 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.firebase.Timestamp
 import com.melq.seizonkakuninbutton.MainViewModel
 import com.melq.seizonkakuninbutton.R
 import com.melq.seizonkakuninbutton.databinding.FragmentWatcherHistoryBinding
@@ -65,7 +66,8 @@ class WatcherHistoryFragment : Fragment(R.layout.fragment_watcher_history) {
                     val notificationManagerCompat = NotificationManagerCompat.from(requireContext())
                     notificationManagerCompat.cancel(R.string.remind_to_watcher)
                     if (this.isNotEmpty()) {
-                        WatcherNotificationReceiver.setNotification(context, last(), 24)
+                        val lastTime = last()["timestamp"] as Timestamp
+                        WatcherNotificationReceiver.setNotification(requireContext(), lastTime, 24)
                     }
                 }
                 adapter.notifyDataSetChanged()
