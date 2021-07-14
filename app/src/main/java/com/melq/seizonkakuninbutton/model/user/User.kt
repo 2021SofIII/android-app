@@ -5,7 +5,7 @@ import com.google.firebase.Timestamp
 class User (
     val email: String,
     var name: String,
-    val pushHistory: MutableList<Timestamp>
+    val pushHistory: MutableList<Map<String, Any>>
 ) {
     constructor() : this("", "", mutableListOf())
 
