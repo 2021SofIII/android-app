@@ -35,7 +35,7 @@ class MainViewModel : ViewModel() {
     val countDown: MutableLiveData<Int> = MutableLiveData(0)
     var isWatcher = false
 
-    fun buttonPushed() {
+    fun buttonPushed(comment: String) {
         if (canPush.value == false) return
 
         viewModelScope.launch(Dispatchers.Main) {
@@ -48,8 +48,11 @@ class MainViewModel : ViewModel() {
         }
 
         val now = Timestamp.now()
-        repository.reportLiving(firebaseUser.uid, now)
-        user.pushHistory.add(now)
+        val info = mapOf(
+            "timestamp" to now,
+            "comment" to comment)
+        repository.reportLiving(firebaseUser.uid, info)
+        user.pushHistory.add(info)
 
         canPush.value = false
         done.value = true
