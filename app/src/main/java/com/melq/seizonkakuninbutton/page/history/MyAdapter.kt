@@ -46,8 +46,10 @@ class MyAdapter(private val historyList: MutableList<Map<String, Any>>, private 
             val millisOfHours = 1000 * 60 * 60
             val diffHours = diffTime / millisOfHours
             tvHoursAgo.text = "$diffHours 時間前"
+            if (position % 2 == 1) {
+                box.setBackgroundColor(context.resources.getColor(R.color.secondary_sub, null))
+            }
             if (position == 0) {
-                box.setBackgroundColor(context.resources.getColor(R.color.white, null))
                 if (diffHours >= 24) tvHoursAgo.setTextColor(context.resources.getColor(R.color.red, null))
                 else tvHoursAgo.setTextColor(context.resources.getColor(R.color.green, null))
             }
