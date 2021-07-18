@@ -15,9 +15,9 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="36dp"
-            android:layout_height="36dp"
-            android:background="@drawable/ripple_circle" />
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:src="@drawable/icon_round" />
 
         <TextView
             android:layout_width="wrap_content"
