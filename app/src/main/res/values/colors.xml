@@ -15,6 +15,7 @@
     <color name="primary">#FFFBAD26</color>
     <color name="secondary">#FFFBD26B</color>
     <color name="secondary_sub">#30FBD26B</color>
+    <color name="green_sub">#FF9CC257</color>
     <color name="red">#FFBA0000</color>
     <color name="green">#FF00BA02</color>
 </resources>

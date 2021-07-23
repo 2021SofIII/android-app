@@ -13,15 +13,15 @@
         app:layout_constraintRight_toRightOf="parent"
         android:padding="8sp"
         android:paddingStart="12dp"
-        android:background="@color/primary"
+        android:background="@color/green_sub"
         android:textSize="32sp"
         android:textColor="@color/white"
-        android:elevation="8dp"/>
+        android:elevation="8dp" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycler_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tv_title"/>
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

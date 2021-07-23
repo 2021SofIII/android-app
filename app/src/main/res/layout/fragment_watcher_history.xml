@@ -15,7 +15,7 @@
             android:layout_height="wrap_content"
             android:padding="8sp"
             android:paddingStart="12dp"
-            android:background="@color/primary"
+            android:background="@color/green_sub"
             android:textSize="32sp"
             android:textColor="@color/white"
             android:elevation="8dp" />
