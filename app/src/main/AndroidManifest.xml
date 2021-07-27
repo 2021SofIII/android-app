@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
-        android:label="@string/app_name"
+        android:label="@string/app_title"
         android:roundIcon="@drawable/icon_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SeizonKakuninButton">
